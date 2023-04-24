@@ -14,6 +14,16 @@ const router = createRouter({
       path:'/home',
       name: 'home',
       component: () => import('@/views/HomeView.vue'),
+      beforeEnter : (to, from, next) => {
+        const item = localStorage.getItem('token')
+        if (item) {
+          // El elemento existe en el localStorage
+          next()
+        } else {
+          // El elemento no existe en el localStorage
+          next('/login')
+        }
+      }
     },
     {
       path: '/about',

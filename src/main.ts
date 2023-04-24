@@ -7,6 +7,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 import App from './App.vue'
 import router from './router'
+// import globalComponents from '@/components/globalComponents'
 // import VeeValidateComponents from '@/config/veevalidate/components'
 
 import 'bulma/css/bulma.css'
@@ -24,6 +25,6 @@ const app = createApp(App)
 // app.use(Buefy)
 app.use(createPinia())
 app.use(router)
-// app.use(VeeValidateComponents)
+// app.use(globalComponents)
 app.use(VueSweetalert2,options)
 app.mount('#app')
