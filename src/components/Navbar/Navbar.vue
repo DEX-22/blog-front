@@ -52,13 +52,13 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import pinia from '@/store'
+import {userStore} from '@/modules/user/store'
 // import { ActionTypes } from '@/store/user/types'
 
 export default defineComponent({
   name: 'Header',
   setup() {
-    const store = pinia()
+    const store = userStore()
 
     const isOpen = ref(false)
 
