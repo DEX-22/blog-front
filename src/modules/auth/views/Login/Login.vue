@@ -38,9 +38,9 @@ import { useRouter } from 'vue-router';
   const store = userStore();
   const handleSubmit = async () => {
   
-      const {hasErrors,data} = await store.login(
-              {user_name: user_name.value,
-                password: password.value
+      const {hasErrors,data} = await store.login( {
+              user_name: user_name.value,
+              password: password.value
               })
      
       if(hasErrors)

@@ -1,13 +1,13 @@
 import axios from "@/service"
-import type {Ilogin} from "@/interfaces/login/index"
+import type {loginI} from "@/interfaces/login/index"
 
 
 class LoginService{
 
-    async index(credentials:Ilogin){
+    async index(credentials:loginI){
 
         try {
-            const {status,data} = await axios.post('/login',credentials)
+            const {status,data} = await axios.post('login',credentials)
 
             return {hasErrors:false,data}
 

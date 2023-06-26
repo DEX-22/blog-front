@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import 'bulma/css/bulma.css';
+@import 'sweetalert2/dist/sweetalert2.min.css';
+@import './_variables.scss';
+@import './_darkmode.scss';
+
+body {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    color: $text-color;
+  }
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  
+  h1, h2, h3 {
+    font-weight: bold;
+    color: $dark-color;
+  }
+  button {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }

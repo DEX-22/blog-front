@@ -1,16 +1,17 @@
 <template>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <button class="button is-white" @click="toggleSidebar">
-            <span class="icon" :class="{ 'has-text-grey-lighter': !isOpen }">
-                <i class="fas fa-bars"></i>
-            </span>
-        </button>
+        <nav :class="['navbar', isDark ? 'is-dark' : 'is-success']" role="navigation" aria-label="main navigation">
+       
+        <IconToggleDarkMode />
+        
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item">
-                    Home
+                    Home  
                 </a>
+                <router-link class="navbar-item" :to="{name:'chat'}">
+                    Chat
+                </router-link>
 
                 <a class="navbar-item">
                     Documentation
@@ -42,39 +43,33 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <RouterLink v-if="$route.name === 'login'" class="button is-primary" :to="{name:'register'}">Register</RouterLink>
-                        <RouterLink v-else class="button is-light" :to="{name:'login'}">Logout</RouterLink>
+                        <router-link v-if="$route.name === 'login'" class="button is-primary" :to="{name:'register'}">Register</router-link>
+                        <router-link v-else class="button is-light" :to="{name:'login'}">Logout</router-link>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 </template>
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
-import {userStore} from '@/modules/user/store'
-// import { ActionTypes } from '@/store/user/types'
 
-export default defineComponent({
-  name: 'Header',
-  setup() {
-    const store = userStore()
+<script>
+import IconToggleDarkMode from '@/components/icons/IconToggleDarkMode.vue'
+import { darkModeStore } from "@/store/darkmode/index";
 
-    const isOpen = ref(false)
 
-    const toggleSidebar = () => {
-      isOpen.value = !isOpen.value
+
+export default{
+    components:{
+        IconToggleDarkMode
+    },
+    data(){return{
+        darkModeStore: darkModeStore()
+    }},
+    computed:{
+        isDark(){
+            return this.darkModeStore.isDarkModeOn
+        }
     }
+}
 
-    const logout = () => {
-      store.dispatch(ActionTypes.LOGOUT)
-    }
-
-    return {
-      isOpen,
-      toggleSidebar,
-      logout,
-    }
-  },
-})
 </script>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import AuthRoutes from '@/modules/auth/routes/index'
+import { authStore } from '@/modules/auth/store'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,8 +33,27 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('@/modules/chat/Chat.vue')
     }
   ]
+})
+
+router.beforeEach((to,from,next)=>{
+
+  const auth =  authStore()
+
+  console.log(auth.isLoggedIn);
+  
+
+  next()
+
 })
 
 export default router

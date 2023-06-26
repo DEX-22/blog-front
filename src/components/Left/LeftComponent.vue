@@ -1,5 +1,5 @@
 <template>
-    <div class="column is-one-quarter">
+    <div class="container">
     <!-- Sección de información adicional del usuario -->
     <div class="card">
       <div class="card-content">

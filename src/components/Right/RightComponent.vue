@@ -1,7 +1,6 @@
 <template>
 
-<div class="column is-one-quarter">
-    <div class="column is-12">
+<div class="container">
       <div class="box is-fullheight">
         <div class="columns is-flex-direction-column is-justify-content-space-between is-align-items-center">
           <div class="column">
@@ -44,7 +43,6 @@
           </a>
         </nav>
       </div>
-    </div>
 </div>
   </template>
   

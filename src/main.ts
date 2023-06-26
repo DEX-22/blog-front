@@ -7,24 +7,18 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 import App from './App.vue'
 import router from './router'
-// import globalComponents from '@/components/globalComponents'
-// import VeeValidateComponents from '@/config/veevalidate/components'
 
-import 'bulma/css/bulma.css'
-import 'sweetalert2/dist/sweetalert2.min.css';
-// import '@/config/veevalidate/rules'
-
-// import Buefy from 'buefy'
-// import 'buefy/dist/buefy.css'
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
-// import './assets/main.css'
+import '@/assets/styles/main.scss'
+import '@/utils/fs-icons'
 
 const app = createApp(App)
 
-// app.use(Buefy)
 app.use(createPinia())
 app.use(router)
-// app.use(globalComponents)
+app.component('Icon',FontAwesomeIcon)
 app.use(VueSweetalert2,options)
 app.mount('#app')

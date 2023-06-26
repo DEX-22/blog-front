@@ -1,7 +1,6 @@
-<template>
-  <div class="container">
-    <UserCard :user="user" />
-  </div>
+<template><div>
+  asdasd    
+</div>
 </template>
 
 <script>

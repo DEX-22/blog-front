@@ -1,33 +1,39 @@
+<!-- Sección de información del usuario -->
+<!-- Sección de crear post -->
+<!-- Sección de posts -->
 <template>
-    <div class="container">
-      <div class="columns">
-          <!-- Sección de información del usuario -->
-            <Right :user="user" />
-          </div>
-        </div>
-        <div class="column">
-          <!-- Sección de crear post -->
-          <CreatePost />
-          <!-- Sección de posts -->
-          <div class="columns is-multiline">
-            <div class="column is-one-third" v-for="post in posts" :key="post.id">
-              <div class="card">
-                <div class="card-content">
-                  <p class="title is-4">{{ post.title }}</p>
-                  <p class="subtitle is-6">{{ post.user.name }}</p>
-                  <div class="content">{{ post.content }}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <Left />
+  <div class="columns">
+      <div class="column is-full">
+        <Navbar />
       </div>
+  </div>
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <LeftComponent :user="user" />
+      </div>
+      <div class="column">
+        <div class="container mb-2">
+          <CreatePost />
+        </div>
+          <!-- <div class=""> -->
+            
+              <PostList :posts="posts"/>
+            
+          <!-- </div> -->
+      </div>
+
+      <div class="column is-one-third">
+        <RightComponent  :user="user" />
+      </div>
+    </div>
   </template>
   <script lang="ts" setup>
   import { reactive,  } from 'vue'
   import CreatePost from '@/components/Post/CreatePost.vue'
-  import Left from '@/components/Left/Left.vue'
+  import LeftComponent from '@/components/Left/LeftComponent.vue'
+  import RightComponent from '@/components/Right/RightComponent.vue'
+  import Navbar from '@/components/Navbar/Navbar.vue'
+  import PostList from '@/components/Post/PostList.vue'
 
   const user = reactive({
         
@@ -36,6 +42,27 @@
           avatar: 'https://bulma.io/images/placeholders/64x64.png'
       })
   const posts = reactive([
+    {
+      title:'ASDFASD ASD ASD AS asas d ',
+      user:{
+        name:'ASDFASD AS asas d '
+      },
+      content:'ASDFASD ASD ASD AS asas d ',
+    },
+    {
+      title:'ASDFASD ASD ASD AS asas d ',
+      user:{
+        name:'ASDFASD AS asas d '
+      },
+      content:'ASDFASD ASD ASD AS asas d ',
+    },
+    {
+      title:'ASDFASD ASD ASD AS asas d ',
+      user:{
+        name:'ASDFASD AS asas d '
+      },
+      content:'ASDFASD ASD ASD AS asas d ',
+    },
     {
       title:'ASDFASD ASD ASD AS asas d ',
       user:{
