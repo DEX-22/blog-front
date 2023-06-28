@@ -1,0 +1,14 @@
+:root {
+--theme-color: #52b3d0;
+}
+body {
+background-color: var(--theme-color);
+/* ... */
+}
+
+.sidebar {
+@apply ml-6 mt-6 w-20 h-min rounded-[20px] py-4 shadow-xl ring-1 ring-gray-900/5  dark:bg-gray-800;
+}
+.sidebar li {
+@apply m-2 p-2 text-center;
+}

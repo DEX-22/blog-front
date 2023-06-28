@@ -2,8 +2,8 @@
     <div class="switch">
       <input type="checkbox" class="checkbox" id="checkbox"  @click="toggleColor">
       <label for="checkbox" class="label" >
-        <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'moon']" />
-        <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'sun']" /> 
+        <!-- <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'moon']" />
+        <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'sun']" />  -->
         <div class="ball" ></div>
       </label>
   </div>

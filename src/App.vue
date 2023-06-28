@@ -1,15 +1,25 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
 
-</script>
 
 <template>
 
-  
-  <router-view />
+  <div :class="{'dark':isDarkModeOn}">
+
+   <router-view />
+  </div>
 
 </template>
 
-<style scoped>
+<script>
 
-</style>
+export default{
+  data(){return {
+
+  }},
+  computed:{
+    isDarkModeOn(){
+      return window.localStorage.getItem('theme')?? true
+    }
+  }
+}
+
+</script>

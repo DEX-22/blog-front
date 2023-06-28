@@ -13,7 +13,7 @@
       </div>
       <div class="column">
         <div class="container mb-2">
-          <CreatePost />
+            <CreatePost />
         </div>
           <!-- <div class=""> -->
             

@@ -1,15 +1,42 @@
-<template><div>
-  asdasd    
-</div>
+<template>
+        <ul class="sidebar ">
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+          <li class="p-2 m-2">
+            ICONNOO
+          </li>
+        </ul>
 </template>
 
 <script>
-import UserCard from '@/components/Right/UserCard.vue'
+// import UserCard from '@/components/Right/UserCard.vue'
 
 export default {
   name: 'UserPage',
   components: {
-    UserCard
+    // UserCard
   },
   data() {
     return {
@@ -27,5 +54,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos de la página aquí */
+
+
 </style>
