@@ -418,8 +418,7 @@ export default {
 </script>
 <style lang="sass" scoped>
 .container
-
-  @apply p-2
+  @apply p-2 flex flex-col items-center w-full
 
 .track_time
   @apply rounded-2xl

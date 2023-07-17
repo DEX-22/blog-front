@@ -22,7 +22,7 @@
           <!-- </div> -->
       </div>
 
-      <div class="basis-1/4">
+      <div class="">
         <RightComponent  :user="user" />
       </div>
     </div>

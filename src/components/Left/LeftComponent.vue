@@ -1,41 +1,31 @@
 <template>
-    <div class="container">
-    <!-- Sección de información adicional del usuario -->
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <!-- <figure class="image is-64x64">
-              <img :src="user.avatar" :alt="user.name" />
-            </figure> -->
-          </div>
-          <div class="media-content">
-            <p class="title is-4">{{ user.name }}</p>
-            <p class="subtitle is-6">{{ user.email }}</p>
-          </div>
-        </div>
-        <div class="content">
-          <h5 class="title is-5">Opciones adicionales</h5>
-          <ul>
-            <li><a href="#">Configuración</a></li>
-            <li><a href="#">Mensajes</a></li>
-            <li><a href="#">Actividad</a></li>
-            <li><a href="#">Ayuda</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <div class="bg-gray-200 font-sans h-screen w-full flex flex-row justify-center items-center">
+  <div class="card w-96 mx-auto bg-white  shadow-xl hover:shadow">
+     <img class="w-32 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
+     <div class="text-center mt-2 text-3xl font-medium">Ajo Alex</div>
+     <div class="text-center mt-2 font-light text-sm">@devpenzil</div>
+     <div class="text-center font-normal text-lg">Kerala</div>
+     <div class="px-6 text-center mt-2 font-light text-sm">
+       <p>
+         Front end Developer, avid reader. Love to take a long walk, swim
+       </p>
+     </div>
+     <hr class="mt-8">
+     <div class="flex p-4">
+       <div class="w-1/2 text-center">
+         <span class="font-bold">1.8 k</span> Followers
+       </div>
+       <div class="w-0 border border-gray-300">
+         
+       </div>
+       <div class="w-1/2 text-center">
+         <span class="font-bold">2.0 k</span> Following
+       </div>
+     </div>
   </div>
+</div>
 </template>
-<script lang="ts" setup>
 
-import {defineProps} from 'vue'
-
-defineProps<{
-  user: {
-    name:string,
-    email:string
-  }
-}>()
-
+<script setup>
+import { PaperClipIcon } from '@heroicons/vue/20/solid'
 </script>
