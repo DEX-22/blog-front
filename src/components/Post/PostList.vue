@@ -1,7 +1,7 @@
 <template>
-    <div class="columns mt-4 px-4" v-for="post in posts" :key="post.id">
-        <Post /> 
-    </div>
+    <!-- <div class="columns mt-4 px-4"> -->
+        <Post  v-for="post in posts" :key="post.id"/> 
+    <!-- </div> -->
 </template>
 <script lang="ts" setup>
 import Post from './Post.vue'

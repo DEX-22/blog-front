@@ -16,7 +16,7 @@
           <div class="">
             <div class="flex items-center justify-between">
               <h2 class="text-lg font-semibold text-gray-900 -mt-1">
-                Brad Adams
+                Claudia Padilla
               </h2>
               <small class="text-sm text-gray-700">22h ago</small>
             </div>
