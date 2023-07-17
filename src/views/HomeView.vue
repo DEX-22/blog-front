@@ -2,16 +2,16 @@
 <!-- Sección de crear post -->
 <!-- Sección de posts -->
 <template>
-  <div class="columns">
+  <div class="">
       <div class="column is-full">
         <Navbar />
       </div>
   </div>
-    <div class="columns">
-      <div class="column is-one-quarter">
+    <div class="flex">
+      <div class="basis-1/4">
         <LeftComponent :user="user" />
       </div>
-      <div class="column">
+      <div class="basis-1/2">
         <div class="container mb-2">
             <CreatePost />
         </div>
@@ -22,7 +22,7 @@
           <!-- </div> -->
       </div>
 
-      <div class="column is-one-third">
+      <div class="basis-1/4">
         <RightComponent  :user="user" />
       </div>
     </div>

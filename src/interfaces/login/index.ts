@@ -6,6 +6,9 @@ export interface LoginI{
     user_name: string
     password: string
 }
+export interface RegisterI extends LoginI{
+    email: string
+}
 export interface UserStateI {
     
 }

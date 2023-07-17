@@ -1,10 +1,10 @@
 import axios from "@/service"
-import type {loginI} from "@/interfaces/login/index"
+import type {loginI,RegisterI} from "@/interfaces/login/index"
 
 
-class LoginService{
+class AuthService{
 
-    async index(credentials:loginI){
+    async login(credentials:loginI){
 
         try {
             const {status,data} = await axios.post('login',credentials)
@@ -24,9 +24,27 @@ class LoginService{
 
     }
 
+    async register(credentials: RegisterI){
+        try {
+            const {status,data} = await axios.post('register',credentials)
+
+            return {hasErrors:false,data}
+
+        } catch (error) {
+
+            let stringErrors =''
+            
+            Object.values(error.response.data.errors).map( (el) =>{
+                stringErrors += `${el[0]} \n`
+            })
+
+            return {hasErrors: true, data:stringErrors}
+        }
+    }
+
 }
 
 
 
 
-export default new LoginService()
+export default new AuthService()

@@ -5,7 +5,7 @@
         <div class="field">
           <label class="label">Nombre de usuario</label>
           <div class="control">
-            <input class="input" type="text" v-model="username">
+            <input class="input" type="text" v-model="name">
           </div>
         </div>
         <div class="field">
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="my-4">
-          <button class="button is-primary" type="submit" >Registrar</button>
+          <button @click="registerUser" class="button is-primary" type="submit" >Registrar</button>
         </div>
         
         <span class="is-flex is-align-self-baseline"> Ya estas registrado? vuelve al <router-link class="ml-1" :to="{name:'login'}"> login</router-link> </span>
@@ -30,20 +30,26 @@
   </template>
   
   <script lang="ts" setup>
-  import { defineComponent, ref } from 'vue'
-  import { userStore } from '@/modules/user/store'
+  import { defineComponent, ref,inject } from 'vue'
+  import { authStore } from '@/modules/auth/store'
+  import { useRouter } from 'vue-router'
+  const swal = inject("$swal");
   
-      const user = userStore()
+      const auth = authStore()
+      const router = useRouter()
       
-      const username = ref('')
+      const name = ref('')
       const email = ref('')
       const password = ref('')
   
-      const login = async () => {
+      const registerUser = async () => {
         try {
-          // const response = await api.post('/login', { email: email.value, password: password.value })
-          // user.login(response.data.token)
-          // router.push('/perfil')
+          const {data,hasErrors} = await auth.register({ email: email.value, password: password.value,name:name.value })
+          if(hasErrors){
+            swal(data)
+            return
+          } 
+          router.push('/login')
         } catch (error) {
           console.error(error)
         }

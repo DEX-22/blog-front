@@ -2,7 +2,7 @@ import axios, { type AxiosInstance, type AxiosResponse } from 'axios';
 
 
 const axiosInstance: AxiosInstance = axios.create({
-    baseURL: 'http://localhost:8000/api/', // URL de la API a la que se conectará
+    baseURL: import.meta.env.VITE_BACK_URL , // URL de la API a la que se conectará
     timeout: 5000, // tiempo máximo de espera antes de que se agote el tiempo de espera
     headers: {
         'Content-Type': 'application/json', // tipo de contenido de las solicitudes

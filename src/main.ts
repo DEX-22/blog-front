@@ -10,6 +10,7 @@ import router from './router'
 
 import '@/assets/styles/css/index.css'
 
+// window.swal = inject("$swal");
 
 const app = createApp(App)
 
