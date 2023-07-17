@@ -44,35 +44,7 @@
           
       </p>
     </div>
-  </div>
-    <!-- <div class="container " style="border:1px red solid;">
-      <h2 class="title ">Registrarme</h2>
-   
-        <div class="field">
-          <label class="label">Nombre de usuario</label>
-          <div class="control">
-            <input class="input" type="text" v-model="name">
-          </div>
-        </div>
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-              <input class="input" type="email" v-model="email">
-            </div>
-          </div>
-        <div class="field">
-          <label class="label">Contraseña</label>
-          <div class="control">
-            <input class="input" type="password" v-model="password">
-          </div>
-        </div>
-        <div class="my-4">
-          <button  class="button is-primary" type="submit" >Registrar</button>
-        </div>
-        
-        <span class="is-flex is-align-self-baseline">  </span>
-        
-    </div> -->
+  </div> 
   </template>
   
   <script lang="ts" setup>
