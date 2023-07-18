@@ -14,10 +14,9 @@ class AuthService{
         } catch (error) {
 
             let stringErrors =''
-            
-            Object.values(error.response.data.errors).map( (el) =>{
-                stringErrors += `${el[0]} \n`
-            })
+             
+                stringErrors.concat(error.response.data.errors)
+             
 
             return {hasErrors: true, data:stringErrors}
         }

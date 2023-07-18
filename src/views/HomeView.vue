@@ -1,8 +1,8 @@
 <template>
-  <div class="h-screen grid grid-cols-12 grid-rows-6"> 
-      <LeftComponent :user="user" class="fixed w-16 col-span-1 row-span-6"/> 
+  <div class="h-screen grid  grid-rows-6"> 
+      <LeftComponent :user="user" class="w-16 col-span-1 row-span-6"/> 
       <Navbar class="  h-16 col-span-12 row-span-1 " /> 
-      <main class="col-span-8 row-span-5">
+      <main class="col-span-8 row-span-6 overflow-y-scroll">
         <CreatePost /> 
         <PostList :posts="posts" /> 
       </main>
@@ -59,6 +59,8 @@ const fetchPosts = async () => {
   // Aquí podrías hacer una llamada a una API para obtener los posts
   // Por ahora, vamos a dejarlo vacío
 };
+
+
 </script>
 <style scoped>
 

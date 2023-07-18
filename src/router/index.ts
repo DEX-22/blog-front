@@ -44,10 +44,11 @@ router.beforeEach((to,from,next)=>{
 
   const auth =  authStore()
 
-  console.log(auth.isLoggedIn);
-  
+  // if(auth.isLoggedIn)
+     next() 
+  //   next('/')
 
-  next()
+  
 
 })
 

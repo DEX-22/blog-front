@@ -1,6 +1,7 @@
 
 import AuthService from '@/modules/auth/service'
 import type { AuthActions,RegisterI,LoginI} from '@/interfaces/login/index'
+import router from '@/router'
 
 
 export default{
@@ -26,8 +27,9 @@ export default{
             return login
         }
           
-  
-        this.token = login.data.token
+        const {token,user} = login.data 
+        this.token = token
+        Object.assign(this.currentUser,user)  
         localStorage.setItem('token', this.token)
   
         return login
@@ -35,5 +37,6 @@ export default{
       logout(this: AuthActions):void {
         this.token = ''
         localStorage.removeItem('token')
+        router.push({name:'login'})
       },
 }

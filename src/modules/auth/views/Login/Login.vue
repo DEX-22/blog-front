@@ -38,32 +38,7 @@
           
       </p>
     </div>
-  </div>
-  <!-- <div class="container">
-    <h2 class="title">Iniciar sesión</h2> 
-    <div class="field">
-      <label class="label">Nombre de usuario</label>
-      <div class="control">
-       
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Contraseña</label>
-      <div class="control">
-        <input class="input" type="password" v-model="password" />
-      </div>
-    </div>
-    <div>
-      <button @click="handleSubmit" class="button is-primary" type="submit">
-        Iniciar sesión
-      </button>
-    </div>
-
-    <span>
-      Aun no tienes una cuenta?
-      <router-link :to="{ name: 'register' }"> Registrese</router-link>
-    </span> 
-  </div> -->
+  </div> 
 </template>
   
   <script lang="ts" setup>
@@ -79,15 +54,18 @@ let password = ref("");
 
 const store = authStore();
 const handleSubmit = async () => {
-  const { hasErrors, data } = await store.login({
+  const {hasErrors,data} = await store.login({
     user_name: user_name.value,
     password: password.value,
   });
 
-  if (hasErrors) swal(data);
+  if (hasErrors) 
+    swal(data)
 
+    
+    router.push("/home");
+  
   // store.token = token;
-  router.push("/home");
 };
 </script>
 

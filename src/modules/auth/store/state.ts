@@ -5,5 +5,10 @@ export default ():AuthStateI => ({
         login:{
             user_name: '',
             password: '',
+        },
+        currentUser: {
+            user_id: 0,
+            email: '',
+            name: ''
         }
 })
