@@ -3,7 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { authStore } from '@/modules/auth/store'
 
 import AuthRoutes from '@/modules/auth/routes/index'
-import ChatRoutes from '@/modules/chat/routes'
+import NewsRoutes from '@/modules/news/routes/index'
+import PostRoutes from '@/modules/post/routes/index'
+import ChatRoutes from '@/modules/chat/routes/index'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,7 +23,7 @@ const router = createRouter({
         const item = localStorage.getItem('token')
         if (item) {
           // El elemento existe en el localStorage
-          next()
+          next({name: 'post'})
         } else {
           // El elemento no existe en el localStorage
           next('/login')
@@ -36,7 +38,9 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     },
-    ChatRoutes
+    ChatRoutes,
+    PostRoutes,
+    NewsRoutes
   ]
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800 text-md h-screen w-full flex flex-col items-center">
+  <div class="absolute  bg-gray-800 text-md h-screen flex flex-col items-center ">
   <component v-for="(icon,index) in navigationIcons" :is="icon" :key="index" class="icon"  /> 
 </div>
 </template>
