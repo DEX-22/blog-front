@@ -1,51 +1,56 @@
 <template>
-    <div class="switch">
-      <input type="checkbox" class="checkbox" id="checkbox"  @click="toggleColor">
-      <label for="checkbox" class="label" >
-        <!-- <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'moon']" />
+  <div class="switch">
+    <input
+      type="checkbox"
+      class="checkbox"
+      id="checkbox"
+      @click="toggleColor"
+    />
+    <label for="checkbox" class="label">
+      <!-- <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'moon']" />
         <icon v-show="!darkModeStore.isDarkMoodeOn" :icon="['fa', 'sun']" />  -->
-        <div class="ball" ></div>
-      </label>
+      <div class="ball"></div>
+    </label>
   </div>
-  </template>
+</template>
   
   <script >
-  import { computed, defineComponent } from 'vue'
-  import { darkModeStore } from '@/store/darkmode/index'
-  
-  // const darkModeStore = darkModeStore()
-  
-  export default{
-    data(){return{
-      darkModeStore:darkModeStore()
-    }},
-    methods:{
-      toggleColor(){
-        console.log('asdasd');
-        this.darkModeStore.toggle()
-      }
-    },
-    computed:{
-      isDark(){
-        return this.darkModeStore.isDarkModeOn
-      }
-    }
-  }
+import { computed, defineComponent } from "vue";
+// import { darkModeStore } from "@/store/darkmode/index";
 
-    
-  </script>
+// const darkModeStore = darkModeStore()
+
+export default {
+  data() {
+    return {
+      // darkModeStore: darkModeStore(),
+    };
+  },
+  methods: {
+    toggleColor() {
+      console.log("asdasd");
+      // this.darkModeStore.toggle();
+    },
+  },
+  computed: {
+    isDark() {
+      // return this.darkModeStore.isDarkModeOn;
+    },
+  },
+};
+</script>
   
   <style scoped>
-  .switch{
+.switch {
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.checkbox{
+.checkbox {
   opacity: 0;
   position: absolute;
 }
-.label{
+.label {
   background-color: #a6a6a6;
   display: flex;
   align-items: center;
@@ -56,7 +61,7 @@
   width: 50px;
   height: 26px;
 }
-.ball{
+.ball {
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
@@ -66,17 +71,17 @@
   height: 22px;
   transition: transform 0.2s linear;
 }
-.checkbox:checked + .label .ball{
+.checkbox:checked + .label .ball {
   transform: translateX(24px);
 }
-.checkbox:checked + .label{
+.checkbox:checked + .label {
   background-color: #212121;
 }
-.fa-moon{
+.fa-moon {
   color: #f1c40f;
 }
-.fa-sun{
+.fa-sun {
   color: #f1c40f;
 }
-  </style>
+</style>
   

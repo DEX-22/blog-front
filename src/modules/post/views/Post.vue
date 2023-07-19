@@ -1,7 +1,8 @@
 <template>
+<Navbar class="h-20  w-screen " />
     <main class="overflow-y-scroll p-4 h-full overflow-scroll ">
       <CreatePost class="w-full"  />
-      <PostList class="w-full " :posts="posts" />
+      <PostList class="w-full " />
     </main>
 </template>
 <script lang="ts" setup> 

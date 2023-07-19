@@ -1,10 +1,16 @@
 :root {
 --theme-color: #F5F5F5;
+
+--light: #F2F2F2;
+--dark: #212B40;
+--primary: #3FA66C;
+--secondary: #2980F2;
 }
-body {
-background-color: var(--theme-color);
-/* ... */
-}
+body{
+    /* background-color: var(--theme-color); */
+    @apply bg-light dark:bg-primary dark:text-primary text-dark  ;  
+    /* ... */
+    }
 
 .sidebar {
 @apply ml-6 mt-6 w-20 h-min rounded-[20px] py-4 shadow-xl ring-1 ring-gray-900/5  dark:bg-gray-800;

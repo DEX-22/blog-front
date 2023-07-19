@@ -1,8 +1,9 @@
 import { createPinia } from 'pinia'
-import { userStore } from '@/modules/user/store'
+// import { userStore } from '@/modules/user/store'
+// import { authStore } from '@/modules/auth/store'
+// import { darkModeStore } from "@/store/darkmode"
 
-export const pinia = createPinia()
-
-pinia.use(userStore)
+const pinia = createPinia()
+ 
 
 export default pinia

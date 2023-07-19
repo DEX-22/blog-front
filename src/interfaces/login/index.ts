@@ -1,5 +1,4 @@
-import {authStore} from '@/modules/auth/store/index'
-
+ 
 
 export interface UserI{
     user_id: number,
@@ -24,8 +23,4 @@ export interface AuthStateI{
 export interface AuthGetterI{
     isLoggedIn : (state: AuthStateI) => any
 }
-
-// export type AuthActions = ActionContext<typeof authStore> 
-// export type AuthGetters = GetterContext<typeof >
-
 

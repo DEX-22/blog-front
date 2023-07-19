@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
-import { authStore } from '@/modules/auth/store'
+// import { authStore } from '@/modules/auth/store'
 
 import AuthRoutes from '@/modules/auth/routes/index'
 import NewsRoutes from '@/modules/news/routes/index'
@@ -46,7 +46,7 @@ const router = createRouter({
 
 router.beforeEach((to,from,next)=>{
 
-  const auth =  authStore()
+  const auth =  "authStore()"
 
   // if(auth.isLoggedIn)
      next() 

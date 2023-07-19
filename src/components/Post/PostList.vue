@@ -12,8 +12,8 @@
     <!-- </div> -->
 </template>
 <script lang="ts" setup>
-import Post from '@/components/Post/Post.vue';
 import {reactive} from 'vue';
+import Post from '@/components/Post/Post.vue';
  const posts = reactive([
   {
     name: "Leslie Alexander",

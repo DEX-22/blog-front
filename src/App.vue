@@ -2,24 +2,17 @@
 
 <template>
 
-  <div :class="{'dark':isDarkModeOn}">
-
+  <div  :class="{'dark':isDarkModeOn}"> 
    <router-view />
   </div>
 
 </template>
 
-<script>
+<script lang="ts" setup>
+import { computed,onMounted } from 'vue'
+import {darkModeStore} from '@/store/darkmode/index.ts';
 
-export default{
-  data(){return {
-
-  }},
-  computed:{
-    isDarkModeOn(){
-      return window.localStorage.getItem('theme')?? true
-    }
-  }
-}
+  
+ 
 
 </script>

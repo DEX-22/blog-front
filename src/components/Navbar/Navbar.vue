@@ -1,33 +1,24 @@
 <template>
-  <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
+  <Disclosure as="nav" class="nav" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-end">
         <div
           class="sticky top-0 flex items-center pr-2 gap-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
-          <button
-            type="button"
-            @click="goTo('news')"
-            class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span class="sr-only">View notifications</span>
-            <NewspaperIcon class="h-6 w-6" aria-hidden="true" />
-          </button>
+          <NavigateIcon
+             
+            :icon="darkModeIcon.icon"
+            @click="darkModeIcon.click()"
+            :params="darkModeIcon.params"
+          />
 
-          <button
-            type="button"
-            class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="h-6 w-6" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span class="sr-only">View notifications</span>
-            <ChatBubbleLeftRightIcon class="h-6 w-6" aria-hidden="true" />
-          </button>
+          <NavigateIcon
+            v-for="(icon, i) in navigation"
+            :key="i"
+            :icon="icon.icon"
+            @click="icon.click()"
+            :params="icon.params"
+          />
 
           <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">
@@ -113,8 +104,10 @@
 </template>
 
 <script lang="ts" setup>
-import { darkModeStore } from "@/store/darkmode/index";
-import { computed } from "vue";
+import NavigateIcon from "./NavigateIcon.vue";
+import { darkModeStore } from "@/store/darkmode/index.ts";
+import { useRoute, useRouter } from "vue-router";
+import { computed, onMounted, reactive } from "vue";
 import {
   Disclosure,
   DisclosureButton,
@@ -124,35 +117,43 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/vue";
-import {
-  Bars3Icon,
-  BellIcon,
-  XMarkIcon,
-  ChatBubbleLeftRightIcon,
-  NewspaperIcon,
-} from "@heroicons/vue/24/outline";
-import { useRoute, useRouter } from "vue-router";
-import { authStore } from "@/modules/auth/store/index";
-// import IconToggleDarkMode from '@/components/icons/IconToggleDarkMode.vue'
-
-const auth = authStore();
-
-const logout = () => {
-  auth.logout();
-};
-
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-];
-//
 const router = useRouter();
 
-// const darkModeStore = darkModeStore()
+onMounted(() => {});
+
+const auth = "storeAuth()";
+
+const logout = () => {
+  // auth.logout();
+};
+
+const toggleDarkMode = () => {
+  // sconsole.log('asdasd');
+  
+  const darkMode = darkModeStore();
+  darkMode.toggle();
+};
 
 const goTo = (name) => {
+  name = name.toLowerCase();
   router.push({ name });
 };
+const goToNews = () => {
+  goTo("news");
+};
+const navigation = reactive([
+  { name: "News", icon: "NewspaperIcon", click: goToNews },
+  { name: "Calendar", icon: "BellIcon", click: null },
+  { name: "Chat", icon: "ChatBubbleLeftRightIcon", click: null },
+]);
+const darkModeIcon = computed(() => {
+  const darkMode = darkModeStore();
+  const icons = [
+    { name: "Ligth", icon: "MoonIcon", click: toggleDarkMode },
+    { name: "Dark", icon: "SunIcon", click: toggleDarkMode },
+  ];
+
+  return icons[darkMode.isDarkModeOn?1:0];
+});
+//
 </script>
