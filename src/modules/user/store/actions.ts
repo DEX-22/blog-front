@@ -9,9 +9,10 @@ export default {
             
             const data = user ? user :  (await UserService.getUser()).data
             
-            this.email = data.email
             this.id = data.id
+            this.email = data.email
             this.name = data.name
+            this.avatar = data.avatar
 
         } catch (error) {
             throw new Error("no se encontro el usuario");

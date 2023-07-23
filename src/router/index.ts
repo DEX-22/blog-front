@@ -61,8 +61,11 @@ router.beforeEach(async (to,from)=>{
   if (!isAuthRoute && !auth.isLoggedIn) {
       return { name: 'login' }
   }
-  else{
-      return true
+  else if(isAuthRoute && auth.isLoggedIn){
+
+      return {name: 'home'}
+  }else{
+    return true
   }
 
 

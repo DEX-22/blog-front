@@ -1,5 +1,5 @@
 <template>
-<Navbar class="h-20  w-screen " />
+<Navbar  />
     <main class="overflow-y-scroll p-4 h-full overflow-scroll ">
       <CreatePost class="w-full"  />
       <PostList class="w-full " />

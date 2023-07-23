@@ -4,5 +4,5 @@ export default (): UserStateI => ({
     email:"",
     id:0,
     name:"",
-    
+    avatar:""
   })

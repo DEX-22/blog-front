@@ -13,9 +13,10 @@ export interface RegisterI extends LoginI{
     email: string
 }
 export interface UserStateI {
-    email:string
     id:number
+    email:string
     name:string
+    avatar: string
 
 }
 export interface UserGetterI{
