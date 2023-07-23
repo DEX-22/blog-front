@@ -7,7 +7,7 @@ export default ():AuthStateI => ({
             password: '',
         },
         currentUser: {
-            user_id: 0,
+            id: 0,
             email: '',
             name: ''
         }

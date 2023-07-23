@@ -11,11 +11,11 @@ class PostService {
 
     async createNewPost(post:CreatePostI){
         try {
-            const data = await axios.post('post/new',{...post})
+            const data = await axios.post('post/new', post)
             return data
 
         } catch (error) {
-            console.table(error);
+            console.error(error);
             
         }
 

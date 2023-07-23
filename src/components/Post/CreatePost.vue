@@ -83,13 +83,19 @@
   <script lang="ts" setup>
 import { computed, ref } from "vue";
 import PostService from "@/modules/post/post.service.ts";
+import {authStore} from "@/modules/auth/store/index.ts";
+import { storeToRefs } from 'pinia'
 
-const description = ref("");
+const auth = authStore()
+const {currentUser} = storeToRefs(auth) 
+const { id } = currentUser.value
+const description = ref('')
 
 const createPost = async () => {
+  
   const data = {
     description: description.value,
-    // user_id: user_id.value,
+    user_id: id  ,
   };
   const status = await PostService.createNewPost(data);
 };

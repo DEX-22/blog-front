@@ -5,6 +5,7 @@
         <div
           class="sticky top-0 flex items-center pr-2 gap-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
+        {{user.welcome}}
           <NavigateIcon
              
             :icon="darkModeIcon.icon"
@@ -104,10 +105,12 @@
 </template>
 
 <script lang="ts" setup>
-import NavigateIcon from "./NavigateIcon.vue";
-import { darkModeStore } from "@/store/darkmode/index.ts";
-import { useRoute, useRouter } from "vue-router";
-import { computed, onMounted, reactive } from "vue";
+import { computed, onMounted, reactive } from "vue"
+import { useRoute, useRouter } from "vue-router"
+import { darkModeStore } from "@/store/darkmode"
+import { authStore } from "@/modules/auth/store"
+import { userStore } from "@/modules/user/store"
+import NavigateIcon from "./NavigateIcon.vue"
 import {
   Disclosure,
   DisclosureButton,
@@ -117,15 +120,23 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/vue";
-const router = useRouter();
-
-onMounted(() => {});
-
-const auth = "storeAuth()";
+import { storeToRefs } from "pinia"
+const router = useRouter()
+const auth = authStore()
+const user = userStore()
 
 const logout = () => {
-  // auth.logout();
-};
+  auth.logout()
+
+  router.push({name:'login'})
+}
+
+onMounted(() => { 
+  
+});
+
+
+ 
 
 const toggleDarkMode = () => {
   // sconsole.log('asdasd');

@@ -2,6 +2,7 @@
 import AuthService from '@/modules/auth/service'
 import type { AuthActions,RegisterI,LoginI} from '@/interfaces/login/index'
 import router from '@/router'
+import { userStore } from '@/modules/user/store'
 
 
 export default{
@@ -16,6 +17,7 @@ export default{
       return user
     },
     async login(this: AuthActions, credentials:LoginI) {
+        const userSt = userStore()
         const {user_name,password} = credentials
   
         this.user_name = user_name
@@ -29,14 +31,15 @@ export default{
           
         const {token,user} = login.data 
         this.token = token
-        Object.assign(this.currentUser,user)  
+        userSt.getInformation(user)
         localStorage.setItem('token', this.token)
   
         return login
       },
       logout(this: AuthActions):void {
-        this.token = ''
         localStorage.removeItem('token')
-        router.push({name:'login'})
+        this.token = ''
+
+        // router.push({name:'login'})
       },
 }

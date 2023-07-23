@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { authStore } from '@/modules/auth/store'
+import { userStore } from '@/modules/user/store'
+
 // import HomeView from '../views/HomeView.vue'
-// import { authStore } from '@/modules/auth/store'
 
 import AuthRoutes from '@/modules/auth/routes/index'
 import NewsRoutes from '@/modules/news/routes/index'
@@ -9,7 +11,12 @@ import ChatRoutes from '@/modules/chat/routes/index'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+  routes: [ 
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: to => { return {name:'login'} },
+      
+    },
     {
       path: '/',
       redirect: to => { return {name:'login'} },
@@ -40,19 +47,24 @@ const router = createRouter({
     },
     ChatRoutes,
     PostRoutes,
-    NewsRoutes
+    NewsRoutes, 
   ]
 })
 
-router.beforeEach((to,from,next)=>{
+router.beforeEach(async (to,from)=>{
 
-  const auth =  "authStore()"
+  const auth =  authStore()
+  const user = userStore()
+  const isAuthRoute = ['register','login'].some(route => to.name == route)
 
-  // if(auth.isLoggedIn)
-     next() 
-  //   next('/')
 
-  
+  if (!isAuthRoute && !auth.isLoggedIn) {
+      return { name: 'login' }
+  }
+  else{
+      return true
+  }
+
 
 })
 

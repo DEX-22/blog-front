@@ -1,19 +1,21 @@
 import Login from '@/modules/auth/views/Login/Login.vue'
 
+import { userStore } from '@/modules/user/store'
 
 
 export default { 
     path: 'login', 
     name: 'login', 
     component: Login ,
-    beforeEnter : (to, from, next) => {
-        const item = localStorage.getItem('token')
-        if (item) {
-          // El elemento existe en el localStorage
-          next({name:'home'})
-        } else {
-          // El elemento no existe en el localStorage
-          next()
-        }
+    beforeEnter : (to, from) => {
+
+      const user = userStore()
+      const token = localStorage.getItem('token')
+      
+      if(['register','login'].some(route => to.name == route))
+        return true
+      else
+        return token ? true : {name: 'login'}
+     
       }
 }
