@@ -1,0 +1,26 @@
+:root {
+--theme-color: #F5F5F5;
+
+--light: #F2F2F2;
+--dark: #212B40;
+--primary: #3FA66C;
+--secondary: #2980F2;
+}
+body{
+    /* background-color: var(--theme-color); */
+    @apply bg-light dark:bg-primary dark:text-primary text-dark  ;  
+    /* ... */
+    }
+
+.sidebar {
+@apply ml-6 mt-6 w-20 h-min rounded-[20px] py-4 shadow-xl ring-1 ring-gray-900/5  dark:bg-gray-800;
+}
+.sidebar li {
+@apply m-2 p-2 text-center;
+}
+.btn{
+    @apply flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+.input{
+    @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6;
+}
